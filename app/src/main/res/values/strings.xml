@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Fitness Pro</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="navigation_title_cardio">Cardio</string>
+    <string name="navigation_title_strength">Strength</string>
+    <string name="navigation_title_flexibility">Flexibility</string>
+    <string name="navigation_title_diet">Diet</string>
+    <string name="navigation_title_my_fitness">My Fitness</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_quit">Quit</string>
+    <string name="action_search">Search</string>
+    <string name="action_user">User</string>
+    <string name="message_quit">Quitting Fitness Pro App...</string>
+    <string name="default_name">User Name</string>
+</resources>
