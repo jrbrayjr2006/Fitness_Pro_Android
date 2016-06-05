@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         case 4:
                             break;
                         case 5:
+                            onDietClicked();
                             break;
                         default:
                             break;
@@ -164,6 +165,20 @@ public class MainActivity extends AppCompatActivity {
     /**
      *
      */
+    private void onCardioExerciseClicked() {
+        //
+    }
+
+    /**
+     *
+     */
+    private void onFlexibilityExerciseClicked() {
+        //
+    }
+
+    /**
+     * Corresponds to 1 (index 0) in the array
+     */
     private void onMyFitnessItemClicked() {
         Log.d(TAG, "Switchig to My Fitness fragment...");
         if(fragmentManager == null) {
@@ -177,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
+     * Corresponds to 3 (index 2) in the array
      */
     private void onStrengthExerciseClicked() {
         Log.d(TAG, "Switching to strength fragment...");
@@ -189,5 +204,20 @@ public class MainActivity extends AppCompatActivity {
             strengthExerciseFragment = new StrengthExerciseFragment();
         }
         fragmentManager.beginTransaction().replace(R.id.fragmentContainer,strengthExerciseFragment).commit();
+    }
+
+    /**
+     * Corresponds to 5 (index 4) in the array
+     */
+    private void onDietClicked() {
+        Log.d(TAG, "Switching to diet fragment...");
+        if(fragmentManager == null) {
+            fragmentManager = getFragmentManager();
+        }
+        dietFragment = fragmentManager.findFragmentById(R.id.dietFragment);
+        if(dietFragment == null) {
+            dietFragment = new DietFragment();
+        }
+        fragmentManager.beginTransaction().replace(R.id.fragmentContainer,dietFragment).commit();
     }
 }
