@@ -83,11 +83,13 @@ public class MainActivity extends AppCompatActivity {
                             onMyFitnessItemClicked();
                             break;
                         case 2:
+                            onCardioExerciseClicked();
                             break;
                         case 3:
                             onStrengthExerciseClicked();
                             break;
                         case 4:
+                            onFlexibilityExerciseClicked();
                             break;
                         case 5:
                             onDietClicked();
@@ -166,14 +168,30 @@ public class MainActivity extends AppCompatActivity {
      *
      */
     private void onCardioExerciseClicked() {
-        //
+        Log.d(TAG, "Switchig to cardio fragment...");
+        if(fragmentManager == null) {
+            fragmentManager = getFragmentManager();
+        }
+        cardioExerciseFragment = fragmentManager.findFragmentById(R.id.cardioFragment);
+        if(cardioExerciseFragment == null) {
+            cardioExerciseFragment = new CardioExerciseFragment();
+            fragmentManager.beginTransaction().replace(R.id.fragmentContainer, cardioExerciseFragment).commit();
+        }
     }
 
     /**
      *
      */
     private void onFlexibilityExerciseClicked() {
-        //
+        Log.d(TAG, "Switchig to flexibility fragment...");
+        if(fragmentManager == null) {
+            fragmentManager = getFragmentManager();
+        }
+        flexibilityExerciseFragment = fragmentManager.findFragmentById(R.id.flexibilityFragment);
+        if(flexibilityExerciseFragment == null) {
+            flexibilityExerciseFragment = new FlexibilityExerciseFragment();
+            fragmentManager.beginTransaction().replace(R.id.fragmentContainer, flexibilityExerciseFragment).commit();
+        }
     }
 
     /**
