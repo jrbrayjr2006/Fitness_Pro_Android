@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,8 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     String[] TITLES = {"My Fitness", "Cardio", "Strength", "Flexibility", "Diet"};
     int[] ICONS = {};
@@ -75,6 +78,22 @@ public class MainActivity extends AppCompatActivity {
 
                 if(child != null && mGestureDetector.onTouchEvent(motionEvent)) {
                     mDrawer.closeDrawers();
+                    switch(recyclerView.getChildAdapterPosition(child)) {
+                        case 1:
+                            onMyFitnessItemClicked();
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            onStrengthExerciseClicked();
+                            break;
+                        case 4:
+                            break;
+                        case 5:
+                            break;
+                        default:
+                            break;
+                    }
                     Toast.makeText(MainActivity.this, "The Item Clicked is: " + TITLES[recyclerView.getChildAdapterPosition(child) -1], Toast.LENGTH_SHORT).show();
                     return true;
                 }
@@ -122,14 +141,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(fragmentManager == null) {
-            fragmentManager = getFragmentManager();
-        }
-        myFitnessFragment = fragmentManager.findFragmentById(R.id.myFitnessFragment);
-        if(myFitnessFragment == null) {
-            myFitnessFragment = new MyFitnessFragment();
-            fragmentManager.beginTransaction().add(R.id.fragmentContainer, myFitnessFragment).commit();
-        }
+        onMyFitnessItemClicked();
     }
 
     @Override
@@ -153,13 +165,29 @@ public class MainActivity extends AppCompatActivity {
      *
      */
     private void onMyFitnessItemClicked() {
-        //
+        Log.d(TAG, "Switchig to My Fitness fragment...");
+        if(fragmentManager == null) {
+            fragmentManager = getFragmentManager();
+        }
+        myFitnessFragment = fragmentManager.findFragmentById(R.id.myFitnessFragment);
+        if(myFitnessFragment == null) {
+            myFitnessFragment = new MyFitnessFragment();
+            fragmentManager.beginTransaction().replace(R.id.fragmentContainer, myFitnessFragment).commit();
+        }
     }
 
     /**
      *
      */
     private void onStrengthExerciseClicked() {
-        //
+        Log.d(TAG, "Switching to strength fragment...");
+        if(fragmentManager == null) {
+            fragmentManager = getFragmentManager();
+        }
+        strengthExerciseFragment = fragmentManager.findFragmentById(R.id.strengthFragment);
+        if(strengthExerciseFragment == null) {
+            strengthExerciseFragment = new StrengthExerciseFragment();
+        }
+        fragmentManager.beginTransaction().replace(R.id.fragmentContainer,strengthExerciseFragment).commit();
     }
 }
