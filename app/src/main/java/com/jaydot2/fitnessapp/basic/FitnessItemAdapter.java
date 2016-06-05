@@ -1,16 +1,22 @@
 package com.jaydot2.fitnessapp.basic;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by jamesbray on 6/3/16.
  */
 public class FitnessItemAdapter extends RecyclerView.Adapter<FitnessItemAdapter.ViewHolder> {
+
+    private static final String TAG = "FitnessItemAdapter";
 
     static final int TYPE_HEADER = 0;
     static final int TYPE_ITEM = 1;
@@ -22,8 +28,14 @@ public class FitnessItemAdapter extends RecyclerView.Adapter<FitnessItemAdapter.
     private int profile;
     private String email;
 
+    private Context context;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public interface OnItemClickListener {
+        void onItemClick();
+    }
+
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         int holderId;
 
         TextView textView;
@@ -31,11 +43,15 @@ public class FitnessItemAdapter extends RecyclerView.Adapter<FitnessItemAdapter.
         ImageView profile;
         TextView username;
         TextView email;
+        Context ctx;
 
-        public ViewHolder(View itemView, int ViewType) {
+        public ViewHolder(View itemView, int ViewType, Context c) {
 
             super(itemView);
+            itemView.setClickable(true);
+            itemView.setOnClickListener(this);
 
+            ctx = c;
             if(ViewType == TYPE_ITEM) {
                 textView = (TextView)itemView.findViewById(R.id.rowText);
                 imageView = (ImageView)itemView.findViewById(R.id.rowIcon) ;
@@ -48,14 +64,28 @@ public class FitnessItemAdapter extends RecyclerView.Adapter<FitnessItemAdapter.
             }
         }
 
-    }
 
+        @Override
+        public void onClick(View v) {
+            Log.d(TAG, "onClick " + getAdapterPosition());
+            Toast.makeText(ctx, "The item is clicked " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    /*
     public FitnessItemAdapter(String[] titles, String name, String email) {
 
         mNavTitles = titles;
         this.username = name;
         this.email = email;
 
+    }*/
+
+    public FitnessItemAdapter(String[] titles, String name, String email, Context passedContext) {
+        mNavTitles = titles;
+        this.username = name;
+        this.email = email;
+        this.context = passedContext;
     }
 
     /**
@@ -70,15 +100,16 @@ public class FitnessItemAdapter extends RecyclerView.Adapter<FitnessItemAdapter.
 
         if(viewType == TYPE_ITEM) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row, parent, false);
-            ViewHolder vhItem = new ViewHolder(v, viewType);
+            ViewHolder vhItem = new ViewHolder(v, viewType, context);
             return vhItem;
         } else if (viewType == TYPE_HEADER) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.header, parent, false);
-            ViewHolder vhHeader = new ViewHolder(v, viewType);
+            ViewHolder vhHeader = new ViewHolder(v, viewType, context);
             return vhHeader;
         }
         return null;
     }
+
 
     @Override
     public void onBindViewHolder(FitnessItemAdapter.ViewHolder holder, int position) {

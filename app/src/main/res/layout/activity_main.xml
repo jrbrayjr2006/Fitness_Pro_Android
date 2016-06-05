@@ -7,9 +7,9 @@
     android:elevation="7dp"
     tools:context="com.jaydot2.fitnessapp.basic.MainActivity">
     <LinearLayout
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/fitnessGreen"
         android:orientation="vertical">
 
         <include
