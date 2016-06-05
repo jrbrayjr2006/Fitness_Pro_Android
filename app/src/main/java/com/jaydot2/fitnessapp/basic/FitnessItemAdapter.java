@@ -48,10 +48,10 @@ public class FitnessItemAdapter extends RecyclerView.Adapter<FitnessItemAdapter.
         public ViewHolder(View itemView, int ViewType, Context c) {
 
             super(itemView);
+            ctx = c;
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
 
-            ctx = c;
             if(ViewType == TYPE_ITEM) {
                 textView = (TextView)itemView.findViewById(R.id.rowText);
                 imageView = (ImageView)itemView.findViewById(R.id.rowIcon) ;

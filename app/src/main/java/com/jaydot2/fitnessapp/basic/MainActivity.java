@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment myFitnessFragment;
     private Fragment strengthExerciseFragment;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,17 +52,33 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView = (RecyclerView)findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new FitnessItemAdapter(TITLES, NAME, EMAIL, this);
+        mAdapter = new FitnessItemAdapter(TITLES, NAME, EMAIL, getApplicationContext());
 
         mRecyclerView.setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        final GestureDetector mGestureDetector = new GestureDetector(MainActivity.this, new GestureDetector.SimpleOnGestureListener(){
+
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                return true;
+            }
+        });
+
+
         mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener(){
 
             @Override
             public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+                View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
 
-                return true;
+                if(child != null && mGestureDetector.onTouchEvent(motionEvent)) {
+                    mDrawer.closeDrawers();
+                    Toast.makeText(MainActivity.this, "The Item Clicked is: " + TITLES[recyclerView.getChildAdapterPosition(child) -1], Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                return false;
             }
 
             @Override
@@ -72,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 //
             }
         });
+
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
