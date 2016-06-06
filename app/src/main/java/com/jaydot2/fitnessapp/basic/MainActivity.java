@@ -77,8 +77,14 @@ public class MainActivity extends AppCompatActivity {
                 View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
 
                 if(child != null && mGestureDetector.onTouchEvent(motionEvent)) {
+                    int index = recyclerView.getChildAdapterPosition(child);
+
+                    // handle navigation header
+                    if(index < 1) {
+                        index = 1;
+                    }
                     mDrawer.closeDrawers();
-                    switch(recyclerView.getChildAdapterPosition(child)) {
+                    switch(index) {
                         case 1:
                             onMyFitnessItemClicked();
                             break;
@@ -97,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                         default:
                             break;
                     }
-                    Toast.makeText(MainActivity.this, "The Item Clicked is: " + TITLES[recyclerView.getChildAdapterPosition(child) -1], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "The Item Clicked is: " + TITLES[index - 1], Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 return false;
