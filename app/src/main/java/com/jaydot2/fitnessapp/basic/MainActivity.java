@@ -210,7 +210,9 @@ public class MainActivity extends AppCompatActivity {
         }
         myFitnessFragment = fragmentManager.findFragmentById(R.id.myFitnessFragment);
         if(myFitnessFragment == null) {
+            Bundle bundle = new Bundle();
             myFitnessFragment = new MyFitnessFragment();
+            myFitnessFragment.setArguments(bundle);
             fragmentManager.beginTransaction().replace(R.id.fragmentContainer, myFitnessFragment).commit();
         }
     }

@@ -10,6 +10,7 @@
         android:id="@+id/welcomeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:text="@string/navigation_title_my_fitness"/>
 
@@ -20,16 +21,30 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@color/colorPrimaryLight"
-        android:elevation="4dp">
+        android:elevation="4dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/goalsTitleText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:textColor="@color/secondary_text"
+            android:textStyle="bold"
+            android:textAlignment="center"
             android:text="@string/my_goals"/>
+
+        <Spinner
+            android:id="@+id/fitnessGoalsSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp">
+
+        </Spinner>
 
     </LinearLayout>
 

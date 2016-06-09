@@ -68,7 +68,7 @@ public class FitnessItemAdapter extends RecyclerView.Adapter<FitnessItemAdapter.
         @Override
         public void onClick(View v) {
             Log.d(TAG, "onClick " + getAdapterPosition());
-            Toast.makeText(ctx, "The item is clicked " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(ctx, "The item is clicked " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
         }
 
     }
