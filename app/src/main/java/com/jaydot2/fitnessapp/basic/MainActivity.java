@@ -2,6 +2,7 @@ package com.jaydot2.fitnessapp.basic;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.os.AsyncTask;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,10 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
+
+//import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -245,5 +250,16 @@ public class MainActivity extends AppCompatActivity {
             dietFragment = new DietFragment();
         }
         fragmentManager.beginTransaction().replace(R.id.fragmentContainer,dietFragment).commit();
+    }
+
+
+    protected class RestClientTask extends AsyncTask<Void, Void, List<String>> {
+
+        @Override
+        protected List<String> doInBackground(Void... params) {
+
+            //RestTemplate restTemplate = new RestTemplate();
+            return null;
+        }
     }
 }
