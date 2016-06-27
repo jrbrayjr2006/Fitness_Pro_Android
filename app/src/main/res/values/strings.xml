@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Fitness Pro</string>
 
+    <string name="show_exercise">Start</string>
+    <string name="cancel">Cancel</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -22,6 +25,7 @@
 
     <string name="start">Start</string>
     <string name="stop">Stop</string>
+    <string name="ok">OK</string>
 
     <string name="meal01">Meal 1</string>
     <string name="meal02">Meal 2</string>
@@ -29,6 +33,9 @@
     <string name="meal04">Meal 4</string>
     <string name="meal05">Meal 5</string>
     <string name="meal06">Meal 6</string>
+
+    <string name="pushups">Pushups</string>
+    <string name="squats">Squats</string>
 
     <string-array name="fitness_goals_array">
         <item>Weight Loss</item>
