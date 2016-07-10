@@ -13,4 +13,7 @@
     <color name="fitnessGreen">#68FFBF</color>
     <color name="fitnessOrange">#FFA342</color>
     <color name="grey">#CCCCCC</color>
+    <color name="dark_pink">#C2185B</color>
+    <color name="pink">#E91E63</color>
+    <color name="light_purple">#E040FB</color>
 </resources>

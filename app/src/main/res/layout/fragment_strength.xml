@@ -66,4 +66,58 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/strengthThree"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:paddingRight="10dp"
+            android:layout_gravity="start"
+            android:background="?android:attr/selectableItemBackground"
+            card_view:cardElevation="1dp"
+            card_view:cardBackgroundColor="@color/colorAccent"
+            card_view:cardCornerRadius="3dp">
+
+            <ImageButton
+                android:id="@+id/strengthThreeImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/crunch3"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/strengthFour"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:background="?android:attr/selectableItemBackground"
+            card_view:cardElevation="1dp"
+            card_view:cardBackgroundColor="@color/light_purple"
+            card_view:cardCornerRadius="3dp">
+
+            <ImageButton
+                android:id="@+id/strengthFourImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/squat_thrust2"/>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
 </LinearLayout>

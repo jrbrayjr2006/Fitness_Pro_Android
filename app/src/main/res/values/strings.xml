@@ -36,6 +36,8 @@
 
     <string name="pushups">Pushups</string>
     <string name="squats">Squats</string>
+    <string name="crunch">Crunch</string>
+    <string name="squat_thrust">Squat Thrust</string>
 
     <string-array name="fitness_goals_array">
         <item>Weight Loss</item>

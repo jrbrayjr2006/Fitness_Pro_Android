@@ -21,9 +21,13 @@ public class StrengthExerciseFragment extends Fragment {
 
     private CardView cardViewOne;
     private CardView cardViewTwo;
+    private CardView cardViewThree;
+    private CardView cardViewFour;
     private ExerciseDialogFragment exerciseDialog;
     private ImageButton strengthOneImageButton;
     private ImageButton strengthTwoImageButton;
+    private ImageButton strengthThreeImageButton;
+    private ImageButton strengthFourImageButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,22 @@ public class StrengthExerciseFragment extends Fragment {
             }
         });
 
+        cardViewThree = (CardView)v.findViewById(R.id.strengthThree);
+        cardViewThree.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
+
+        cardViewFour = (CardView)v.findViewById(R.id.strengthFour);
+        cardViewFour.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
+
         strengthOneImageButton = (ImageButton)v.findViewById(R.id.strengthOneImageButton);
         strengthOneImageButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -65,6 +85,22 @@ public class StrengthExerciseFragment extends Fragment {
         strengthTwoImageButton.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 openDialog(getResources().getString(R.string.squats),R.drawable.squat);
+                return false;
+            }
+        });
+
+        strengthThreeImageButton = (ImageButton)v.findViewById(R.id.strengthThreeImageButton);
+        strengthThreeImageButton.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                openDialog(getResources().getString(R.string.crunch),R.drawable.crunch);
+                return false;
+            }
+        });
+
+        strengthFourImageButton = (ImageButton)v.findViewById(R.id.strengthFourImageButton);
+        strengthFourImageButton.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                openDialog(getResources().getString(R.string.squat_thrust),R.drawable.squat_thrust);
                 return false;
             }
         });
