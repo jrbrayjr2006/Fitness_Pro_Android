@@ -27,12 +27,37 @@
     <string name="stop">Stop</string>
     <string name="ok">OK</string>
 
-    <string name="meal01">Meal 1</string>
-    <string name="meal02">Meal 2</string>
-    <string name="meal03">Meal 3</string>
-    <string name="meal04">Meal 4</string>
-    <string name="meal05">Meal 5</string>
-    <string name="meal06">Meal 6</string>
+    <string name="meal01">Meal 1 - Breakfast</string>
+    <string name="meal02">Meal 2 - Morning Snack</string>
+    <string name="meal03">Meal 3 - Lunch</string>
+    <string name="meal04">Meal 4 - Afternoon Snack</string>
+    <string name="meal05">Meal 5 - Dinner</string>
+    <string name="meal06">Meal 6 - Evening Snack</string>
+
+    <string-array name="meal01_details">
+        <item>This meal starts your day by giving you foods that allow your body to have energy for your morning tasks and or exercise.</item>
+        <item>Water</item>
+    </string-array>
+    <string-array name="meal02_details">
+        <item>This light snack allows gives your body the fuel to continue to burn calories at a steady pace.</item>
+        <item>Water</item>
+    </string-array>
+    <string-array name="meal03_details">
+        <item>This is generally your mid-day meal and should include both carbohydrates and protein.</item>
+        <item>Water</item>
+    </string-array>
+    <string-array name="meal04_details">
+        <item>This light mid afternoon snack provides your body with a steady stream of nutrition to help keep your metabolism high.</item>
+        <item>Water</item>
+    </string-array>
+    <string-array name="meal05_details">
+        <item>This is the last relatively large meal of the day.  It provides your body with the nutrients you will need to build and maintain muscle as well as keep your metabolism high.</item>
+        <item>Water</item>
+    </string-array>
+    <string-array name="meal06_details">
+        <item>This last light snack of the day should be considered optional.  Depending on your health and fitness goals, this may provide some necessary calories and nutrients for your body.</item>
+        <item>Water</item>
+    </string-array>
 
     <string name="pushups">Pushups</string>
     <string name="squats">Squats</string>
