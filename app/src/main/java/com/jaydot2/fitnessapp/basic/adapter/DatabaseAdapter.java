@@ -1,13 +1,12 @@
-package com.jaydot2.fitnessapp.basic;
+package com.jaydot2.fitnessapp.basic.adapter;
 
-import android.app.Fragment;
-import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 /**
+ * <b>Description:</b>
+ *
  * <p>
  *     <b>License Agreeement</b>
  * </p>
@@ -31,32 +30,25 @@ import android.view.ViewGroup;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * </p>
- * Created by jamesbray on 6/4/16.
+ * Created by jamesbray on 9/4/16.
  */
-public class DietFragment extends Fragment {
+public class DatabaseAdapter extends SQLiteOpenHelper {
 
-    public static final String TAG = "DietFragment";
+    private static final String TAG = "DatabaseAdapter";
+    private static final String DB_NAME = "fitnesspro.sqlite";
+    private static final int VERSION = 1;
 
-    private CardView mealCard01;
-    private CardView mealCard02;
-    private CardView mealCard03;
-    private CardView mealCard04;
-    private CardView mealCard05;
-    private CardView mealCard06;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public DatabaseAdapter(Context context) {
+        super(context, DB_NAME, null, VERSION);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        View v = inflater.inflate(R.layout.fragment_diet, container, false);
+    public void onCreate(SQLiteDatabase db) {
 
-        mealCard01 = (CardView)v.findViewById(R.id.meal01);
-        //TODO add logic here
+    }
 
-        return v;
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
     }
 }
