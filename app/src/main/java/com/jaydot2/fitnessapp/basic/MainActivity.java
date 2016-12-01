@@ -1,5 +1,6 @@
 package com.jaydot2.fitnessapp.basic;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.AsyncTask;
@@ -200,6 +201,10 @@ public class MainActivity extends AppCompatActivity {
         if(id == R.id.action_settings) {
             return true;
         }
+        if(id == R.id.action_quit) {
+            quitApp(this);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -281,6 +286,16 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.fragmentContainer,dietFragment).commit();
     }
 
+    /**
+     * <p>
+     *     Close the application
+     * </p>
+     * @param activity
+     */
+    private void quitApp(Activity activity) {
+        activity.finish();
+    }
+
 
     protected class RestClientTask extends AsyncTask<Void, Void, List<String>> {
 
@@ -291,4 +306,5 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
+
 }
