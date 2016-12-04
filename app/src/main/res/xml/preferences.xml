@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/pref_baseline_fitness_title"
+        android:key="@string/pref_baseline_fitness_settings">
+
+        <EditTextPreference
+            android:defaultValue="@string/pref_default_name"
+            android:hint="Enter your name here"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_name_title"
+            android:key="edit_text_preference_name" />
+        <EditTextPreference
+            android:defaultValue="0"
+            android:hint="@string/pref_weight_hint"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_weight_title"
+            android:key="edit_text_preference_baseline_weight" />
+        <EditTextPreference
+            android:defaultValue="0"
+            android:hint="@string/pref_height_hint"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_height_title"
+            android:key="edit_text_preference_baseline_height" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

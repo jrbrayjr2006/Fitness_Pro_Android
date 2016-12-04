@@ -69,4 +69,14 @@
         <item>Increase Strength</item>
         <item>Increase Endurance</item>
     </string-array>
+
+    <string name="pref_fitness_core_title">Fitness Pro Settings</string>
+    <string name="pref_baseline_fitness_title">Baseline Fitness</string>
+    <string name="pref_baseline_fitness_settings">baseline</string>
+    <string name="pref_name_title">Name</string>
+    <string name="pref_weight_title">Weight</string>
+    <string name="pref_height_title">Height</string>
+    <string name="pref_weight_hint">Enter your weight here</string>
+    <string name="pref_height_hint">Enter your height here</string>
+    <string name="pref_default_name">Anonymous User</string>
 </resources>

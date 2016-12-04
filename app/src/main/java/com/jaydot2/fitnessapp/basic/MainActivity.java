@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.AsyncTask;
+import android.preference.PreferenceFragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment flexibilityExerciseFragment;
     private Fragment myFitnessFragment;
     private Fragment strengthExerciseFragment;
+    private PreferenceFragment settingsFragment;
 
 
     @Override
@@ -199,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_settings) {
+            onSettingsOption();
             return true;
         }
         if(id == R.id.action_quit) {
@@ -284,6 +287,17 @@ public class MainActivity extends AppCompatActivity {
             dietFragment = new DietFragment();
         }
         fragmentManager.beginTransaction().replace(R.id.fragmentContainer,dietFragment).commit();
+    }
+
+
+    private void onSettingsOption() {
+        Log.d(TAG, "Switching to settings fragement...");
+        if(fragmentManager == null) {
+            fragmentManager = getFragmentManager();
+        }
+
+        settingsFragment = new SettingsFragment();
+        fragmentManager.beginTransaction().replace(R.id.fragmentContainer, settingsFragment).commit();
     }
 
     /**
