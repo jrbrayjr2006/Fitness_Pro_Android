@@ -11,21 +11,28 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/pref_name_title"
-            android:key="edit_text_preference_name" />
+            android:key="PREF_FIT_NAME" />
         <EditTextPreference
             android:defaultValue="0"
             android:hint="@string/pref_weight_hint"
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/pref_weight_title"
-            android:key="edit_text_preference_baseline_weight" />
+            android:key="BASELINE_FIT_WEIGHT" />
         <EditTextPreference
             android:defaultValue="0"
             android:hint="@string/pref_height_hint"
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/pref_height_title"
-            android:key="edit_text_preference_baseline_height" />
+            android:key="BASELINE_FIT_HEIGHT" />
+        <EditTextPreference
+            android:defaultValue="21"
+            android:hint="@string/pref_age_hint"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_age_title"
+            android:key="PREF_FIT_AGE" />
     </PreferenceCategory>
 
 </PreferenceScreen>

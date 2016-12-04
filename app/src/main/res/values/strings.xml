@@ -34,6 +34,10 @@
     <string name="meal05">Meal 5 - Dinner</string>
     <string name="meal06">Meal 6 - Evening Snack</string>
 
+    <string name="age">Age</string>
+    <string name="start_weight">Starting Weight</string>
+    <string name="start_BMI">Body Mass Index</string>
+
     <string-array name="meal01_details">
         <item>This meal starts your day by giving you foods that allow your body to have energy for your morning tasks and or exercise.</item>
         <item>Water</item>
@@ -70,13 +74,20 @@
         <item>Increase Endurance</item>
     </string-array>
 
+    <string name="PREF_FIT_NAME">PREF_FIT_NAME</string>
+    <string name="BASELINE_FIT_WEIGHT">BASELINE_FIT_WEIGHT</string>
+    <string name="BASELINE_FIT_HEIGHT">BASELINE_FIT_HEIGHT</string>
+    <string name="PREF_FIT_AGE">PREF_FIT_AGE</string>
     <string name="pref_fitness_core_title">Fitness Pro Settings</string>
     <string name="pref_baseline_fitness_title">Baseline Fitness</string>
     <string name="pref_baseline_fitness_settings">baseline</string>
     <string name="pref_name_title">Name</string>
     <string name="pref_weight_title">Weight</string>
     <string name="pref_height_title">Height</string>
+    <string name="pref_age_title">Age</string>
     <string name="pref_weight_hint">Enter your weight here</string>
     <string name="pref_height_hint">Enter your height here</string>
+    <string name="pref_age_hint">Enter your age here</string>
     <string name="pref_default_name">Anonymous User</string>
+
 </resources>

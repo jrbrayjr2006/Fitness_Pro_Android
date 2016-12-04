@@ -3,8 +3,10 @@ package com.jaydot2.fitnessapp.basic;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -63,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
     String NAME = "John Doe";
     String EMAIL = "john.doe@jaydot2.com";
 
+    SharedPreferences preferences;
+
     private Toolbar toolbar;
 
     RecyclerView mRecyclerView;
@@ -92,7 +96,11 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView = (RecyclerView)findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new FitnessItemAdapter(TITLES, NAME, EMAIL, getApplicationContext());
+
+        // get the values from the app preferences
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String name = preferences.getString(getString(R.string.PREF_FIT_NAME), NAME);
+        mAdapter = new FitnessItemAdapter(TITLES, name, EMAIL, getApplicationContext());
 
         mRecyclerView.setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(this);
@@ -289,7 +297,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.fragmentContainer,dietFragment).commit();
     }
 
-
+    /**
+     * Open the settings
+     */
     private void onSettingsOption() {
         Log.d(TAG, "Switching to settings fragement...");
         if(fragmentManager == null) {

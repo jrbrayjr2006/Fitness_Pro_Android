@@ -46,6 +46,18 @@
 
         </Spinner>
 
+        <TextView
+            android:id="@+id/fitnessStartWeightTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/start_weight"/>
+        <TextView
+            android:id="@+id/fitnessStartWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+
     </LinearLayout>
 
     <LinearLayout
