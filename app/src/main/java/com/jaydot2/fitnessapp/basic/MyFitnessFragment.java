@@ -12,6 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.jaydot2.fitnessapp.basic.util.Util;
+
+import java.text.DecimalFormat;
+
 /**
  * <p>
  *     <b>License Agreeement</b>
@@ -46,8 +50,11 @@ public class MyFitnessFragment extends Fragment {
     private Spinner fitnessGoalsSpinner;
     private ArrayAdapter<CharSequence> fitnessGoalsAdapter;
     private TextView fitnessStartWeight;
+    private TextView bmiTextView;
 
     private String startWeight = "0";
+
+    private DecimalFormat df = new DecimalFormat("#.##");
 
     public MyFitnessFragment() {
         super();
@@ -64,9 +71,23 @@ public class MyFitnessFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_myfitness, container, false);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        startWeight = preferences.getString(getString(R.string.BASELINE_FIT_WEIGHT), "0");
 
-        //TODO add logic here
+        // assumes standard measurement - will add option for metric later
+        startWeight = preferences.getString(getString(R.string.BASELINE_FIT_WEIGHT), "1");
+        String strHeight = preferences.getString(getString(R.string.BASELINE_FIT_HEIGHT),"1");
+        if(strHeight == null || strHeight.equals("")) {
+            strHeight = "1";
+        }
+        if(startWeight == null || startWeight.equals("")) {
+            startWeight = "1";
+        }
+        int weight = Integer.parseInt(startWeight);
+        int height = Integer.parseInt(strHeight);
+
+        Util util = new Util();
+
+        double bmi = util.calculateStandardBMI(weight, height);
+
         fitnessGoalsSpinner = (Spinner) v.findViewById(R.id.fitnessGoalsSpinner);
         fitnessGoalsAdapter = ArrayAdapter.createFromResource(getContext(), R.array.fitness_goals_array, android.R.layout.simple_spinner_item);
         fitnessGoalsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -74,6 +95,9 @@ public class MyFitnessFragment extends Fragment {
 
         fitnessStartWeight = (TextView)v.findViewById(R.id.fitnessStartWeight);
         fitnessStartWeight.setText(startWeight);
+
+        bmiTextView = (TextView)v.findViewById(R.id.bmiTextView);
+        bmiTextView.setText(df.format(bmi));
 
         return v;
     }

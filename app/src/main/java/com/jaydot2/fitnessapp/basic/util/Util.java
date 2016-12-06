@@ -23,7 +23,7 @@ public class Util {
      */
     public double calculateStandardBMI(int mass, int height) {
         double bmi = 0.0;
-        bmi = mass / height * CONVERSION_FACTOR;
+        bmi = (mass  * CONVERSION_FACTOR) / (height * height);
         return bmi;
     }
 
@@ -37,7 +37,7 @@ public class Util {
      */
     public double calculateMetricBMI(int mass, int height) {
         double bmi = 0.0;
-        bmi = mass / height;
+        bmi = mass / height * height;
         return bmi;
     }
 }

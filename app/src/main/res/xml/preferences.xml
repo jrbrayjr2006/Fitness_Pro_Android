@@ -18,7 +18,8 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/pref_weight_title"
-            android:key="BASELINE_FIT_WEIGHT" />
+            android:key="BASELINE_FIT_WEIGHT"
+            android:summary="@string/start_weight"/>
         <EditTextPreference
             android:defaultValue="0"
             android:hint="@string/pref_height_hint"
@@ -27,12 +28,14 @@
             android:title="@string/pref_height_title"
             android:key="BASELINE_FIT_HEIGHT" />
         <EditTextPreference
+            android:id="@+id/pref_age_editText"
             android:defaultValue="21"
             android:hint="@string/pref_age_hint"
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/pref_age_title"
-            android:key="PREF_FIT_AGE" />
+            android:key="PREF_FIT_AGE"
+            android:summary=""/>
     </PreferenceCategory>
 
 </PreferenceScreen>
