@@ -68,6 +68,18 @@
     <string name="crunch">Crunch</string>
     <string name="squat_thrust">Squat Thrust</string>
 
+    <!-- Flexibility Strings -->
+    <string name="yoga_poses">Yoga Poses</string>
+    <string name="runner_stretches">Runner Stretches</string>
+    <!-- Yoga -->
+    <string name="camel_pose">Camel Pose</string>
+    <string name="cobra_pose">Cobra Pose</string>
+    <!-- Runner -->
+    <string name="calf_stretch">Calf Stretch</string>
+    <string name="hamstring_stretch">Hamstring Stretch</string>
+    <string name="quadricep_stretch">Quadricep Stretch</string>
+    <string name="iliotibia_band_stretch">Iliotibia Band Stretch</string>
+
     <string-array name="fitness_goals_array">
         <item>Weight Loss</item>
         <item>Increase Strength</item>
