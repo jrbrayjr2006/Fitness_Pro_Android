@@ -1,6 +1,7 @@
 package com.jaydot2.fitnessapp.basic;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
@@ -44,6 +45,8 @@ public class DietFragment extends Fragment {
     private CardView mealCard05;
     private CardView mealCard06;
 
+    private DietDialogFragment dietDialog;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,5 +61,15 @@ public class DietFragment extends Fragment {
         //TODO add logic here
 
         return v;
+    }
+
+    private void openDialog(String mealName, int resource) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putString(MainActivity.EXERCISE_NAME, mealName);
+        bundle.putInt(MainActivity.IMAGE_RESOURCE, resource);
+        dietDialog = new DietDialogFragment();
+        dietDialog.setArguments(bundle);
+        dietDialog.show(ft, mealName);
     }
 }

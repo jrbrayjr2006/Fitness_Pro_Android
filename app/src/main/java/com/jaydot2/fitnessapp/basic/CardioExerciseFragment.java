@@ -1,12 +1,15 @@
 package com.jaydot2.fitnessapp.basic;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.ImageButton;
 
 /**
  * <p>
@@ -42,6 +45,16 @@ public class CardioExerciseFragment extends Fragment {
     private Button cardioStartButton;
     private Chronometer cardioChronometer;
 
+    private CardView cardViewOne;
+    private CardView cardViewTwo;
+    private CardView cardViewThree;
+    private CardView cardViewFour;
+    private ExerciseDialogFragment exerciseDialog;
+    private ImageButton cardioOneImageButton;
+    private ImageButton cardioTwoImageButton;
+    private ImageButton cardioThreeImageButton;
+    private ImageButton cardioFourImageButton;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,5 +83,16 @@ public class CardioExerciseFragment extends Fragment {
         //TODO add logic here
 
         return v;
+    }
+
+
+    private void openDialog(String exerciseName, int resource) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putString(MainActivity.EXERCISE_NAME, exerciseName);
+        bundle.putInt(MainActivity.IMAGE_RESOURCE, resource);
+        exerciseDialog = new ExerciseDialogFragment();
+        exerciseDialog.setArguments(bundle);
+        exerciseDialog.show(ft, exerciseName);
     }
 }

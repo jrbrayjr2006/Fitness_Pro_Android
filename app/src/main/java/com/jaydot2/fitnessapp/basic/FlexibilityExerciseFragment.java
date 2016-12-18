@@ -1,10 +1,14 @@
 package com.jaydot2.fitnessapp.basic;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 /**
  * <p>
@@ -36,6 +40,16 @@ public class FlexibilityExerciseFragment extends Fragment {
 
     public static final String TAG = "FlexibilityExerciseFragment";
 
+    private CardView cardViewOne;
+    private CardView cardViewTwo;
+    private CardView cardViewThree;
+    private CardView cardViewFour;
+    private ExerciseDialogFragment exerciseDialog;
+    private ImageButton flexOneImageButton;
+    private ImageButton flexTwoImageButton;
+    private ImageButton flexThreeImageButton;
+    private ImageButton flexFourImageButton;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +60,87 @@ public class FlexibilityExerciseFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragement_flexibility, container, false);
 
-        //TODO add logic here
+        cardViewOne = (CardView)v.findViewById(R.id.flexOne);
+        cardViewOne.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
+
+        flexOneImageButton = (ImageButton) v.findViewById(R.id.flexOneImageButton);
+        flexOneImageButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                openDialog(getString(R.string.calf_stretch), R.drawable.hamstring_stretch);
+                return false;
+            }
+        });
+
+        cardViewTwo = (CardView)v.findViewById(R.id.flexTwo);
+        cardViewTwo.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
+
+        flexTwoImageButton = (ImageButton) v.findViewById(R.id.flexTwoImageButton);
+        flexTwoImageButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                //TODO change exercise from default
+                openDialog(getString(R.string.camel_pose), R.drawable.hamstring_stretch);
+                return false;
+            }
+        });
+
+        cardViewThree = (CardView)v.findViewById(R.id.flexThree);
+        cardViewThree.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
+
+        flexThreeImageButton = (ImageButton) v.findViewById(R.id.flexThreeImageButton);
+        flexThreeImageButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                //TODO change exercise from default
+                openDialog(getString(R.string.hamstring_stretch), R.drawable.hamstring_stretch);
+                return false;
+            }
+        });
+
+        cardViewFour = (CardView)v.findViewById(R.id.flexFour);
+        cardViewFour.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
+
+        flexFourImageButton = (ImageButton) v.findViewById(R.id.flexFourImageButton);
+        flexFourImageButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                //TODO change exercise from default
+                openDialog(getString(R.string.cobra_pose), R.drawable.hamstring_stretch);
+                return false;
+            }
+        });
 
         return v;
+    }
+
+    private void openDialog(String exerciseName, int resource) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putString(MainActivity.EXERCISE_NAME, exerciseName);
+        bundle.putInt(MainActivity.IMAGE_RESOURCE, resource);
+        exerciseDialog = new ExerciseDialogFragment();
+        exerciseDialog.setArguments(bundle);
+        exerciseDialog.show(ft, exerciseName);
     }
 }

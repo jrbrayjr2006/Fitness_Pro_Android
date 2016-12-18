@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
+    public static final String EXERCISE_NAME = "EXERCISE_NAME";
+    public static final String IMAGE_RESOURCE = "IMAGE_RESOURCE";
+
     String[] TITLES = {"My Fitness", "Cardio", "Strength", "Flexibility", "Diet"};
     int[] ICONS = {};
 
