@@ -63,12 +63,23 @@
         <item>Water</item>
     </string-array>
 
+    <!-- Strength Exercise Strings -->
     <string name="pushups">Pushups</string>
     <string name="squats">Squats</string>
     <string name="crunch">Crunch</string>
     <string name="squat_thrust">Squat Thrust</string>
 
-    <!-- Flexibility Strings -->
+    <!-- Cardio Exercise Strings -->
+    <string name="running">Running</string>
+    <string name="walking">Walking</string>
+    <string name="biking">Biking</string>
+    <string name="swimming">Swimming</string>
+    <string name="jump_rope">Jumping Rope</string>
+    <string name="treadmill_run">Treadmill Run</string>
+    <string name="treadmill_walk">Treadmill Walk</string>
+    <string name="spin">Spin</string>
+
+    <!-- Flexibility Exercise Strings -->
     <string name="yoga_poses">Yoga Poses</string>
     <string name="runner_stretches">Runner Stretches</string>
     <!-- Yoga -->

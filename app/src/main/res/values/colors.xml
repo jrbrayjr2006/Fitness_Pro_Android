@@ -21,4 +21,9 @@
     <color name="yoga_lavender_dark">#703669</color>
     <color name="yoga_lavenar_light">#FFA7FE</color>
     <color name="yoga_plum">#93325B</color>
+    <!-- action colors -->
+    <color name="cardio_1">#7D3594</color>
+    <color name="cardio_2">#452F91</color>
+    <color name="cardio_3">#3D5DAA</color>
+    <color name="cardio_4">#1592CE</color>
 </resources>

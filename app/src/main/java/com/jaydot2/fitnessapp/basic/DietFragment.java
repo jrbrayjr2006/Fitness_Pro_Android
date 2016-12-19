@@ -7,6 +7,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 /**
  * <p>
@@ -45,6 +46,13 @@ public class DietFragment extends Fragment {
     private CardView mealCard05;
     private CardView mealCard06;
 
+    private ImageButton meal01ImageButton;
+    private ImageButton meal02ImageButton;
+    private ImageButton meal03ImageButton;
+    private ImageButton meal04ImageButton;
+    private ImageButton meal05ImageButton;
+    private ImageButton meal06ImageButton;
+
     private DietDialogFragment dietDialog;
 
     @Override
@@ -58,6 +66,13 @@ public class DietFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_diet, container, false);
 
         mealCard01 = (CardView)v.findViewById(R.id.meal01);
+
+        meal01ImageButton = (ImageButton) v.findViewById(R.id.meal01ImageButton);
+        meal02ImageButton = (ImageButton) v.findViewById(R.id.meal02ImageButton);
+        meal03ImageButton = (ImageButton) v.findViewById(R.id.meal03ImageButton);
+        meal04ImageButton = (ImageButton) v.findViewById(R.id.meal04ImageButton);
+        meal05ImageButton = (ImageButton) v.findViewById(R.id.meal05ImageButton);
+        meal06ImageButton = (ImageButton) v.findViewById(R.id.meal06ImageButton);
         //TODO add logic here
 
         return v;
