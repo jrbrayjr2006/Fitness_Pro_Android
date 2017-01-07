@@ -85,6 +85,7 @@
     <!-- Yoga -->
     <string name="camel_pose">Camel Pose</string>
     <string name="cobra_pose">Cobra Pose</string>
+    <string name="triangle">Extended Triangle Pose</string>
     <!-- Runner -->
     <string name="calf_stretch">Calf Stretch</string>
     <string name="hamstring_stretch">Hamstring Stretch</string>

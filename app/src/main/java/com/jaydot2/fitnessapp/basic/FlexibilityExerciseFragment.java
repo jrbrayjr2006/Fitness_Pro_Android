@@ -72,7 +72,7 @@ public class FlexibilityExerciseFragment extends Fragment {
         flexOneImageButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                openDialog(getString(R.string.calf_stretch), R.drawable.hamstring_stretch);
+                openDialog(getString(R.string.triangle), R.drawable.triangle);
                 return false;
             }
         });
