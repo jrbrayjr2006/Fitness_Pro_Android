@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -78,6 +79,38 @@ public class CardioExerciseFragment extends Fragment {
                     cardioChronometer.stop();
                     cardioStartButton.setText(getResources().getString(R.string.start));
                 }
+            }
+        });
+
+        cardViewOne = (CardView)v.findViewById(R.id.cardioOne);
+        cardViewOne.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
+
+        cardViewTwo = (CardView)v.findViewById(R.id.cardioTwo);
+        cardViewTwo.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
+
+        cardViewThree = (CardView)v.findViewById(R.id.cardioThree);
+        cardViewThree.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
+
+        cardViewFour = (CardView)v.findViewById(R.id.cardioFour);
+        cardViewFour.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
             }
         });
         //TODO add logic here
