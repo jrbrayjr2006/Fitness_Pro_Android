@@ -42,6 +42,8 @@ import android.widget.ImageButton;
 public class CardioExerciseFragment extends Fragment {
 
     public static final String TAG = "CardioExerciseFragment";
+    public static final String EXERCISE_NAME = "EXERCISE_NAME";
+    public static final String IMAGE_RESOURCE = "IMAGE_RESOURCE";
 
     private Button cardioStartButton;
     private Chronometer cardioChronometer;
@@ -50,7 +52,7 @@ public class CardioExerciseFragment extends Fragment {
     private CardView cardViewTwo;
     private CardView cardViewThree;
     private CardView cardViewFour;
-    private ExerciseDialogFragment exerciseDialog;
+    private CardioDialogFragment cardioDialog;
     private ImageButton cardioOneImageButton;
     private ImageButton cardioTwoImageButton;
     private ImageButton cardioThreeImageButton;
@@ -107,13 +109,43 @@ public class CardioExerciseFragment extends Fragment {
         });
 
         cardViewFour = (CardView)v.findViewById(R.id.cardioFour);
-        cardViewFour.setOnTouchListener(new View.OnTouchListener() {
+
+
+        cardioOneImageButton = (ImageButton)v.findViewById(R.id.cardioOneImageButton);
+        cardioOneImageButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                openDialog(getResources().getString(R.string.running),R.drawable.running);
                 return false;
             }
         });
-        //TODO add logic here
+
+        cardioTwoImageButton = (ImageButton)v.findViewById(R.id.cardioTwoImageButton);
+        cardioTwoImageButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                openDialog(getResources().getString(R.string.biking),R.drawable.biking);
+                return false;
+            }
+        });
+
+        cardioThreeImageButton = (ImageButton)v.findViewById(R.id.cardioThreeImageButton);
+        cardioThreeImageButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                openDialog(getResources().getString(R.string.walking),R.drawable.walking);
+                return false;
+            }
+        });
+
+        cardioFourImageButton = (ImageButton)v.findViewById(R.id.cardioFourImageButton);
+        cardioFourImageButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                openDialog(getResources().getString(R.string.swimming),R.drawable.swimming);
+                return false;
+            }
+        });
 
         return v;
     }
@@ -124,8 +156,8 @@ public class CardioExerciseFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putString(MainActivity.EXERCISE_NAME, exerciseName);
         bundle.putInt(MainActivity.IMAGE_RESOURCE, resource);
-        exerciseDialog = new ExerciseDialogFragment();
-        exerciseDialog.setArguments(bundle);
-        exerciseDialog.show(ft, exerciseName);
+        cardioDialog = new CardioDialogFragment();
+        cardioDialog.setArguments(bundle);
+        cardioDialog.show(ft, exerciseName);
     }
 }
