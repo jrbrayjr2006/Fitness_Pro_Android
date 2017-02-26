@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.util.Log;
 
 /**
  * <p>
@@ -38,7 +39,7 @@ import android.widget.ImageButton;
  */
 public class FlexibilityExerciseFragment extends Fragment {
 
-    public static final String TAG = "FlexibilityExerciseFragment";
+    public static final String TAG = "FlexExerciseFragment";
 
     private CardView cardViewOne;
     private CardView cardViewTwo;
@@ -61,37 +62,24 @@ public class FlexibilityExerciseFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragement_flexibility, container, false);
 
         cardViewOne = (CardView)v.findViewById(R.id.flexOne);
-        cardViewOne.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return false;
-            }
-        });
 
         flexOneImageButton = (ImageButton) v.findViewById(R.id.flexOneImageButton);
-        flexOneImageButton.setOnTouchListener(new View.OnTouchListener() {
+        flexOneImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
+            public void onClick(View v) {
+                Log.d(TAG, "Open exercise dialog for triagle pose...");
                 openDialog(getString(R.string.triangle), R.drawable.triangle);
-                return false;
             }
         });
 
         cardViewTwo = (CardView)v.findViewById(R.id.flexTwo);
-        cardViewTwo.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return false;
-            }
-        });
 
         flexTwoImageButton = (ImageButton) v.findViewById(R.id.flexTwoImageButton);
-        flexTwoImageButton.setOnTouchListener(new View.OnTouchListener() {
+        flexTwoImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                //TODO change exercise from default
+            public void onClick(View v) {
+                Log.d(TAG, "Open exercise dialog on hamstring stretch...");
                 openDialog(getString(R.string.camel_pose), R.drawable.hamstring_stretch);
-                return false;
             }
         });
 
@@ -104,12 +92,11 @@ public class FlexibilityExerciseFragment extends Fragment {
         });
 
         flexThreeImageButton = (ImageButton) v.findViewById(R.id.flexThreeImageButton);
-        flexThreeImageButton.setOnTouchListener(new View.OnTouchListener() {
+        flexThreeImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                //TODO change exercise from default
+            public void onClick(View v) {
+                Log.d(TAG, "Open exercise dialog on flex");
                 openDialog(getString(R.string.hamstring_stretch), R.drawable.hamstring_stretch);
-                return false;
             }
         });
 
@@ -122,12 +109,11 @@ public class FlexibilityExerciseFragment extends Fragment {
         });
 
         flexFourImageButton = (ImageButton) v.findViewById(R.id.flexFourImageButton);
-        flexFourImageButton.setOnTouchListener(new View.OnTouchListener() {
+        flexFourImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                //TODO change exercise from default
+            public void onClick(View v) {
+                Log.d(TAG, "Open exercise on dialog flex");
                 openDialog(getString(R.string.cobra_pose), R.drawable.hamstring_stretch);
-                return false;
             }
         });
 

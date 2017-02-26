@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,8 @@ import android.widget.TextView;
  */
 
 public class CardioDialogFragment extends DialogFragment {
+
+    private static final String TAG = "CardioDialogFragment";
 
     private BitmapDrawable bitmapExercise;
     private TextView exerciseTitleText;
@@ -58,16 +61,11 @@ public class CardioDialogFragment extends DialogFragment {
         bitmapExercise = (BitmapDrawable)exerciseImage.getBackground();
 
         builder.setView(v)
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener(){
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //startAnimation();
-                    }
-                })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        CardioDialogFragment.this.getDialog().cancel();
+                        Log.d(TAG, "Dismissing CardioDialogFragment...");
+                        dismiss();
                     }
                 });
 
@@ -75,11 +73,21 @@ public class CardioDialogFragment extends DialogFragment {
         startExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "Dismissing CardioDialogFragment from START button...");
                 //TODO
+                CardioDialogFragment.this.getDialog().dismiss();
             }
         });
 
         return builder.create();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(this != null && this.isVisible()) {
+            dismiss();
+        }
     }
 
 

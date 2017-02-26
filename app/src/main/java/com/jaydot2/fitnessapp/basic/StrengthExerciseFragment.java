@@ -96,35 +96,31 @@ public class StrengthExerciseFragment extends Fragment {
         });
 
         strengthOneImageButton = (ImageButton)v.findViewById(R.id.strengthOneImageButton);
-        strengthOneImageButton.setOnTouchListener(new View.OnTouchListener() {
+        strengthOneImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
+            public void onClick(View v) {
                 openDialog(getString(R.string.pushups), R.drawable.pushup);
-                return false;
             }
         });
 
         strengthTwoImageButton = (ImageButton)v.findViewById(R.id.strengthTwoImageButton);
-        strengthTwoImageButton.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
+        strengthTwoImageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 openDialog(getResources().getString(R.string.squats),R.drawable.squat);
-                return false;
             }
         });
 
         strengthThreeImageButton = (ImageButton)v.findViewById(R.id.strengthThreeImageButton);
-        strengthThreeImageButton.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
+        strengthThreeImageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 openDialog(getResources().getString(R.string.crunch),R.drawable.crunch);
-                return false;
             }
         });
 
         strengthFourImageButton = (ImageButton)v.findViewById(R.id.strengthFourImageButton);
-        strengthFourImageButton.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
+        strengthFourImageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 openDialog(getResources().getString(R.string.squat_thrust),R.drawable.squat_thrust);
-                return false;
             }
         });
 
