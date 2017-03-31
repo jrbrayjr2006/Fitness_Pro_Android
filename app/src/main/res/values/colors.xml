@@ -12,6 +12,9 @@
     <color name="fitnessBlue">#75EDFF</color>
     <color name="fitnessGreen">#68FFBF</color>
     <color name="fitnessOrange">#FFA342</color>
+    <color name="fitnessOrangeTitle">#FF6E37</color>
+    <color name="fitnessAqua">#555BFF</color>
+    <color name="fitnessTeal">#8CEDB5</color>
     <color name="grey">#CCCCCC</color>
     <color name="dark_pink">#C2185B</color>
     <color name="pink">#E91E63</color>

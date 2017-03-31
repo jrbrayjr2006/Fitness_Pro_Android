@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/myFitnessFragment"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey">
+    android:background="@color/fitnessTeal">
 
-    <TextView
-        android:id="@+id/welcomeText"
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:text="@string/navigation_title_my_fitness"/>
+        android:contentDescription="@string/navigation_title_my_fitness"
+        app:srcCompat="@drawable/my_fitness_header"
+        android:id="@+id/imageView" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@color/colorPrimaryLight"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/fitnessAqua"
         android:elevation="4dp"
         android:orientation="vertical">
 
@@ -30,8 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginStart="5dp"
-            android:textColor="@color/secondary_text"
+            android:textColor="@color/white"
             android:textStyle="bold"
+            android:textSize="20dp"
             android:textAlignment="center"
             android:text="@string/my_goals"/>
 
@@ -51,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:text="@string/start_weight"/>
         <TextView
             android:id="@+id/fitnessStartWeight"
@@ -62,6 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:text="@string/start_BMI"/>
         <TextView
             android:id="@+id/bmiTextView"
@@ -77,7 +81,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/colorPrimaryLight"
+        android:background="@color/fitnessOrangeTitle"
+        android:orientation="vertical"
         android:elevation="4dp">
 
         <TextView
@@ -86,16 +91,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
-            android:textColor="@color/secondary_text"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:textAlignment="center"
-            android:text="@string/my_progress"/>
+            android:textSize="20dp"
+            android:text="@string/vital_signs_title"/>
+
+        <TextView
+            android:id="@+id/fitnessProgressMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:text="@string/vital_signs_message"/>
+
 
     </LinearLayout>
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </GridLayout>
 
 </LinearLayout>

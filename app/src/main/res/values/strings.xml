@@ -113,5 +113,7 @@
     <string name="pref_height_hint">Enter your height here</string>
     <string name="pref_age_hint">Enter your age here</string>
     <string name="pref_default_name">Anonymous User</string>
+    <string name="vital_signs_title">Vital Signs</string>
+    <string name="vital_signs_message">You are at 100 percent of your goals</string>
 
 </resources>
