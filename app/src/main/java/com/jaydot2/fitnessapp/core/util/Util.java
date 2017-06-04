@@ -1,4 +1,4 @@
-package com.jaydot2.fitnessapp.basic.util;
+package com.jaydot2.fitnessapp.core.util;
 
 /**
  * <b>Description:</b>

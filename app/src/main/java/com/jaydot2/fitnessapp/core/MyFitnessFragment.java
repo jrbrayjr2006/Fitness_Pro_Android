@@ -1,7 +1,6 @@
-package com.jaydot2.fitnessapp.basic;
+package com.jaydot2.fitnessapp.core;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -12,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.jaydot2.fitnessapp.basic.util.Util;
+import com.jaydot2.fitnessapp.core.util.Util;
 
 import java.text.DecimalFormat;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jaydot2.fitnessapp.basic"
+    package="com.jaydot2.fitnessapp.core"
     android:versionCode="3"
     android:versionName="2.1">
 
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.jaydot2.fitnessapp.basic.SplashActivity"
+        <activity android:name="com.jaydot2.fitnessapp.core.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.jaydot2.fitnessapp.basic.MainActivity"
+        <activity android:name="com.jaydot2.fitnessapp.core.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
         </activity>

@@ -1,4 +1,4 @@
-package com.jaydot2.fitnessapp.basic;
+package com.jaydot2.fitnessapp.core;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

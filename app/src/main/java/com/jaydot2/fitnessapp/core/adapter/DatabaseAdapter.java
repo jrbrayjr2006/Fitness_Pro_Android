@@ -1,4 +1,4 @@
-package com.jaydot2.fitnessapp.basic.adapter;
+package com.jaydot2.fitnessapp.core.adapter;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

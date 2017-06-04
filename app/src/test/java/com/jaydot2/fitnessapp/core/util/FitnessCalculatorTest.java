@@ -1,6 +1,5 @@
-package com.jaydot2.fitnessapp.basic.util;
+package com.jaydot2.fitnessapp.core.util;
 
-import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
 

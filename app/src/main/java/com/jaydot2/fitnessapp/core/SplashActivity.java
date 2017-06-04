@@ -1,4 +1,4 @@
-package com.jaydot2.fitnessapp.basic;
+package com.jaydot2.fitnessapp.core;
 
 import android.content.Intent;
 import android.os.Bundle;

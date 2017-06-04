@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.0'
 
     defaultConfig {
-        applicationId "com.jaydot2.fitnessapp.basic"
+        applicationId "com.jaydot2.fitnessapp.core"
         minSdkVersion 23
         targetSdkVersion 23
         versionCode 1

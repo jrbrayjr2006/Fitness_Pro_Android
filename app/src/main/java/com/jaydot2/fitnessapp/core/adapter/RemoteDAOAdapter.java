@@ -1,7 +1,6 @@
-package com.jaydot2.fitnessapp.basic.adapter;
+package com.jaydot2.fitnessapp.core.adapter;
 
 /**
- *
  * <p>
  *     <b>License Agreeement</b>
  * </p>
@@ -25,7 +24,7 @@ package com.jaydot2.fitnessapp.basic.adapter;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * </p>
- * Created by jamesbray on 9/4/16.
+ * Created by jamesbray on 6/16/16.
  */
-public class NetworkAdapter {
+public class RemoteDAOAdapter {
 }

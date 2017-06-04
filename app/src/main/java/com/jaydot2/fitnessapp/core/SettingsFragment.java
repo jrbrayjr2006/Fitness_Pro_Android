@@ -1,11 +1,8 @@
-package com.jaydot2.fitnessapp.basic;
+package com.jaydot2.fitnessapp.core;
 
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.PreferenceFragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 /**
  * Created by jamesbray on 12/3/16.
