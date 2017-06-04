@@ -82,6 +82,7 @@
     <!-- Flexibility Exercise Strings -->
     <string name="yoga_poses">Yoga Poses</string>
     <string name="runner_stretches">Runner Stretches</string>
+    <string name="standing_stretch">Standing Stretch</string>
     <!-- Yoga -->
     <string name="camel_pose">Camel Pose</string>
     <string name="cobra_pose">Cobra Pose</string>

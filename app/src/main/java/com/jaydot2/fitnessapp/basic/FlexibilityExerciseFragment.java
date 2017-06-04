@@ -78,8 +78,8 @@ public class FlexibilityExerciseFragment extends Fragment {
         flexTwoImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "Open exercise dialog on hamstring stretch...");
-                openDialog(getString(R.string.camel_pose), R.drawable.hamstring_stretch);
+                Log.d(TAG, "Open exercise dialog on standing stretch...");
+                openDialog(getString(R.string.standing_stretch), R.drawable.stretch);
             }
         });
 
