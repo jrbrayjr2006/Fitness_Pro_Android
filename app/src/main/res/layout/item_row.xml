@@ -14,7 +14,8 @@
         android:id="@+id/rowIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"/>
+        android:paddingLeft="16dp"
+        android:src="@drawable/ic_meal"/>
 
     <TextView
         android:id="@+id/rowText"
@@ -24,5 +25,22 @@
         android:paddingTop="4dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="" />
+
+    <!-- BEGIN SPACER VIEW -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <!-- END SPACER VIEW -->
+
+    <Button
+        android:id="@+id/fitnessBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_gravity="right"
+        android:textSize="10sp"
+        android:text="@string/placeholder"/>
 
 </LinearLayout>

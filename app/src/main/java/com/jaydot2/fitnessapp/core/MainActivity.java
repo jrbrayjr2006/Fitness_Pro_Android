@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 
 //import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
+    RecyclerView.ItemDecoration mItemDecoration;
     DrawerLayout mDrawer;
 
     ActionBarDrawerToggle mDrawerToggle;
@@ -104,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String name = preferences.getString(getString(R.string.PREF_FIT_NAME), NAME);
         mAdapter = new FitnessItemAdapter(TITLES, name, EMAIL, getApplicationContext());
+
+        // setup a decorator
+        mItemDecoration = new FitnessItemDecorator(this, FitnessItemDecorator.VERTICAL_LIST);
+        mRecyclerView.addItemDecoration(mItemDecoration);
 
         mRecyclerView.setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(this);
@@ -332,6 +339,12 @@ public class MainActivity extends AppCompatActivity {
             //RestTemplate restTemplate = new RestTemplate();
             return null;
         }
+    }
+
+    private ArrayList<Image> getImages() {
+        ArrayList<Image> images = new ArrayList<Image>();
+
+        return images;
     }
 
 }

@@ -9,6 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
+import com.jaydot2.fitnessapp.core.model.FitnessItem;
+
 /**
  * <p>
  *     <b>License Agreeement</b>
@@ -44,6 +48,8 @@ public class FitnessItemAdapter extends RecyclerView.Adapter<FitnessItemAdapter.
 
     private String[] mNavTitles;
     private int[] mIcons;
+
+    private List<FitnessItem> mFitnessItems;
 
     private String username;
     private int profile;
@@ -104,6 +110,22 @@ public class FitnessItemAdapter extends RecyclerView.Adapter<FitnessItemAdapter.
 
     public FitnessItemAdapter(String[] titles, String name, String email, Context passedContext) {
         mNavTitles = titles;
+        this.username = name;
+        this.email = email;
+        this.context = passedContext;
+    }
+
+    /**
+     * <p>
+     *     This constructor supports using a model object to poplulate the navigation list
+     * </p>
+     * @param fitnessItems
+     * @param name
+     * @param email
+     * @param passedContext
+     */
+    public FitnessItemAdapter(List<FitnessItem> fitnessItems, String name, String email, Context passedContext) {
+        this.mFitnessItems = fitnessItems;
         this.username = name;
         this.email = email;
         this.context = passedContext;

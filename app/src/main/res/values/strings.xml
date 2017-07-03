@@ -117,4 +117,9 @@
     <string name="vital_signs_title">Vital Signs</string>
     <string name="vital_signs_message">You are at 100 percent of your goals</string>
 
+    <string name="placeholder">click me!</string>
+
+    <!-- ERROR MESSAGES -->
+    <string name="invalid_orientation_error">invalid orientation</string>
+
 </resources>
