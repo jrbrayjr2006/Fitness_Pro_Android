@@ -40,4 +40,17 @@ public class Util {
         bmi = mass / height * height;
         return bmi;
     }
+
+    /**
+     * <p>
+     *      Strength index based on the number of pushups and squats performed
+     * </p>
+     * @param numPushups
+     * @param numSquats
+     * @return
+     */
+    public double calculateStrengthIndex(int numPushups, int numSquats) {
+        double strengthIndex = numPushups + numSquats;
+        return strengthIndex;
+    }
 }
