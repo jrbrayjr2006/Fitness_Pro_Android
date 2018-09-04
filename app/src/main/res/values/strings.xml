@@ -3,6 +3,7 @@
 
     <string name="show_exercise">Start</string>
     <string name="cancel">Cancel</string>
+    <string name="log_meal">Log Meal</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -33,6 +34,9 @@
     <string name="meal04">Meal 4 - Afternoon Snack</string>
     <string name="meal05">Meal 5 - Dinner</string>
     <string name="meal06">Meal 6 - Evening Snack</string>
+
+    <string name="calories_hint">Enter calories here</string>
+    <string name="meal_notes_hint">Enter meal notes here</string>
 
     <string name="age">Age</string>
     <string name="start_weight">Starting Weight</string>

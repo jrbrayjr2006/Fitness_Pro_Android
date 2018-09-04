@@ -73,7 +73,7 @@ public class ExerciseDialogFragment extends DialogFragment {
         imageResource = extras.getInt(StrengthExerciseFragment.IMAGE_RESOURCE);
 
 
-        // inflate the custome view
+        // inflate the custom view
         View v = inflater.inflate(R.layout.dialog_fragment_exercise, null);
         exerciseTitleText = (TextView) v.findViewById(R.id.exerciseAnimationTitle);
         exerciseTitleText.setText(exerciseName);

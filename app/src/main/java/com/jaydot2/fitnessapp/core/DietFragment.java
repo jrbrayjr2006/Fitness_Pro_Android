@@ -55,6 +55,9 @@ public class DietFragment extends Fragment {
 
     private DietDialogFragment dietDialog;
 
+    public static final String MEAL_NAME = "MEAL_NAME";
+    public static final String IMAGE_RESOURCE = "IMAGE_RESOURCE";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +71,12 @@ public class DietFragment extends Fragment {
         mealCard01 = (CardView)v.findViewById(R.id.meal01);
 
         meal01ImageButton = (ImageButton) v.findViewById(R.id.meal01ImageButton);
+        meal01ImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog("breakfast", R.drawable.breakfast);
+            }
+        });
         meal02ImageButton = (ImageButton) v.findViewById(R.id.meal02ImageButton);
         meal03ImageButton = (ImageButton) v.findViewById(R.id.meal03ImageButton);
         meal04ImageButton = (ImageButton) v.findViewById(R.id.meal04ImageButton);
@@ -85,6 +94,8 @@ public class DietFragment extends Fragment {
         bundle.putInt(MainActivity.IMAGE_RESOURCE, resource);
         dietDialog = new DietDialogFragment();
         dietDialog.setArguments(bundle);
-        dietDialog.show(ft, mealName);
+        if(!dietDialog.isVisible()) {
+            dietDialog.show(ft, mealName);
+        }
     }
 }
