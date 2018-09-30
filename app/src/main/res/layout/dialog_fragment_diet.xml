@@ -29,7 +29,7 @@
         android:layout_height="wrap_content" />
 
     <TimePicker
-        android:id="@+id/mailTimePicker"
+        android:id="@+id/mealTimePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></TimePicker>
 

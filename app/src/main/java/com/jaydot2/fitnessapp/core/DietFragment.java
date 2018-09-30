@@ -78,6 +78,13 @@ public class DietFragment extends Fragment {
             }
         });
         meal02ImageButton = (ImageButton) v.findViewById(R.id.meal02ImageButton);
+        meal02ImageButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                openDialog("lunch", R.drawable.lunch_snack);
+            }
+        });
         meal03ImageButton = (ImageButton) v.findViewById(R.id.meal03ImageButton);
         meal04ImageButton = (ImageButton) v.findViewById(R.id.meal04ImageButton);
         meal05ImageButton = (ImageButton) v.findViewById(R.id.meal05ImageButton);

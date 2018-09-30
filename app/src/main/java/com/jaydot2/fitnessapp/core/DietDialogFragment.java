@@ -5,11 +5,13 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 /**
  * <b>Description:</b>
@@ -27,6 +29,7 @@ public class DietDialogFragment extends DialogFragment {
     private String mealName;
     private Button detailsMealButton;
     private int imageResource;
+    private TimePicker mealTimePicker;
 
     public DietDialogFragment() {
         super();
@@ -52,18 +55,21 @@ public class DietDialogFragment extends DialogFragment {
         imageResource = extras.getInt(DietFragment.IMAGE_RESOURCE);
 
 
-
         // inflate custom view
         View v = inflater.inflate(R.layout.dialog_fragment_diet, null);
 
         dietTitleText = (TextView) v.findViewById(R.id.dietTitle);
         dietImage = (ImageView) v.findViewById(R.id.dietImage);
+        mealTimePicker = (TimePicker) v.findViewById(R.id.mealTimePicker);
 
-        builder.setView(v)
+                builder.setView(v)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //startAnimation();
+                        int hour = mealTimePicker.getHour();
+                        int minute = mealTimePicker.getMinute();
+                        Log.d("Time of meal", hour + ":" + minute);
+                        //TODO log meal to internal storage
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
