@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,9 @@ public class CardioDialogFragment extends DialogFragment {
     private String exerciseName;
     private Button startExerciseButton;
     private int imageResource;
+
+    public final static String START_EXERCISE_BUNDLE_KEY = "START";
+    public final static int REQUEST_CODE = 0;
 
     public CardioDialogFragment() {}
 
@@ -74,6 +78,7 @@ public class CardioDialogFragment extends DialogFragment {
             public void onClick(View v) {
                 Log.d(TAG, "Dismissing CardioDialogFragment from START button...");
                 //TODO
+                sendStartCounter(0);
                 CardioDialogFragment.this.getDialog().dismiss();
             }
         });
@@ -94,5 +99,12 @@ public class CardioDialogFragment extends DialogFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         //TODO
+    }
+
+    private void sendStartCounter(int REQUEST_CODE) {
+        Log.d(TAG, "send request to start counter...");
+        Intent intent = new Intent();
+        intent.putExtra(START_EXERCISE_BUNDLE_KEY, 1);
+        getTargetFragment().onActivityResult(getTargetRequestCode(), REQUEST_CODE, intent);
     }
 }

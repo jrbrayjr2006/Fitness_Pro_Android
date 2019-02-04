@@ -2,7 +2,9 @@ package com.jaydot2.fitnessapp.core;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -47,6 +49,7 @@ public class CardioExerciseFragment extends Fragment {
     public static final String IMAGE_RESOURCE = "IMAGE_RESOURCE";
 
     private Button cardioStartButton;
+    private Button cardioResetButton;
     private Chronometer cardioChronometer;
 
     private CardView cardViewOne;
@@ -59,6 +62,8 @@ public class CardioExerciseFragment extends Fragment {
     private ImageButton cardioThreeImageButton;
     private ImageButton cardioFourImageButton;
 
+    long offset = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,18 +75,28 @@ public class CardioExerciseFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_cardio, container, false);
 
         cardioStartButton = (Button)v.findViewById(R.id.startCardioBtn);
+        cardioResetButton = (Button)v.findViewById(R.id.resetCardioBtn);
         cardioChronometer = (Chronometer)v.findViewById(R.id.cardioChronometer);
 
         cardioStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(cardioStartButton.getText().equals(getResources().getString(R.string.start))) {
+                    cardioChronometer.setBase(SystemClock.elapsedRealtime());
                     cardioChronometer.start();
                     cardioStartButton.setText(getResources().getString(R.string.stop));
                 } else {
                     cardioChronometer.stop();
+                    offset = SystemClock.elapsedRealtime() - cardioChronometer.getBase();
                     cardioStartButton.setText(getResources().getString(R.string.start));
                 }
+            }
+        });
+
+        cardioResetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cardioChronometer.setBase(SystemClock.elapsedRealtime());
             }
         });
 
@@ -110,6 +125,12 @@ public class CardioExerciseFragment extends Fragment {
         });
 
         cardViewFour = (CardView)v.findViewById(R.id.cardioFour);
+        cardViewFour.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
 
 
         cardioOneImageButton = (ImageButton)v.findViewById(R.id.cardioOneImageButton);
@@ -151,6 +172,25 @@ public class CardioExerciseFragment extends Fragment {
         return v;
     }
 
+    /**
+     * <p>
+     *     Receive the event to start the chronometer
+     * </p>
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "received event from dialog fragment");
+        if(requestCode == cardioDialog.REQUEST_CODE) {
+            Log.d(TAG, "starting chronometer...");
+            this.cardioChronometer.setBase(SystemClock.elapsedRealtime());
+            this.cardioChronometer.start();
+            this.cardioStartButton.setText(getResources().getString(R.string.stop));
+        }
+    }
+
 
     private void openDialog(String exerciseName, int resource) {
         FragmentTransaction ft = getFragmentManager().beginTransaction().addToBackStack("cardioDialog");
@@ -158,6 +198,8 @@ public class CardioExerciseFragment extends Fragment {
         bundle.putString(MainActivity.EXERCISE_NAME, exerciseName);
         bundle.putInt(MainActivity.IMAGE_RESOURCE, resource);
         cardioDialog = new CardioDialogFragment();
+        final int REQUEST_CODE = 0;
+        cardioDialog.setTargetFragment(this, REQUEST_CODE);
         cardioDialog.setArguments(bundle);
         if(!cardioDialog.isVisible()) {
             cardioDialog.show(ft, exerciseName);

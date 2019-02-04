@@ -27,6 +27,7 @@
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="ok">OK</string>
+    <string name="reset">Reset</string>
 
     <string name="meal01">Meal 1 - Breakfast</string>
     <string name="meal02">Meal 2 - Morning Snack</string>
