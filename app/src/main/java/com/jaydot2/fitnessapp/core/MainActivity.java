@@ -8,6 +8,8 @@ import android.media.Image;
 import android.os.AsyncTask;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,12 +23,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * <b>Description:</b>
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXERCISE_NAME = "EXERCISE_NAME";
     public static final String IMAGE_RESOURCE = "IMAGE_RESOURCE";
 
-    String[] TITLES = {"My Fitness", "Cardio", "Strength", "Flexibility", "Diet"};
+    //String[] TITLES = {"My Fitness", "Cardio", "Strength", "Flexibility", "Diet", "Update Profile Photo"};
     int[] ICONS = {};
 
     String NAME = "John Doe";
@@ -74,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
-    RecyclerView mRecyclerView;
-    RecyclerView.Adapter mAdapter;
-    RecyclerView.LayoutManager mLayoutManager;
-    RecyclerView.ItemDecoration mItemDecoration;
+    private NavigationView navView;
+
+    private CircleImageView circleImageView;
+
     DrawerLayout mDrawer;
 
     ActionBarDrawerToggle mDrawerToggle;
@@ -100,21 +105,43 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.RecyclerView);
-        mRecyclerView.setHasFixedSize(true);
+        navView = findViewById(R.id.navView);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                menuItem.setChecked(true);
+
+                mDrawer.closeDrawers();
+                switch (menuItem.getItemId()) {
+                    case R.id.menuItemMyFitness:
+                        onMyFitnessItemClicked();
+                        break;
+                    case R.id.menuItemCardio:
+                        onCardioExerciseClicked();
+                        break;
+                    case R.id.menuItemMyStrength:
+                        onStrengthExerciseClicked();
+                        break;
+                    case R.id.menuItemFlexibility:
+                        onFlexibilityExerciseClicked();
+                        break;
+                    case R.id.menuItemDiet:
+                        onDietClicked();
+                        break;
+                    case 6:
+                        updateProfileImage();
+                        break;
+                    default:
+                        break;
+                }
+                return false;
+            }
+        });
+
 
         // get the values from the app preferences
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String name = preferences.getString(getString(R.string.PREF_FIT_NAME), NAME);
-        mAdapter = new FitnessItemAdapter(TITLES, name, EMAIL, getApplicationContext());
-
-        // setup a decorator
-        mItemDecoration = new FitnessItemDecorator(this, FitnessItemDecorator.VERTICAL_LIST);
-        mRecyclerView.addItemDecoration(mItemDecoration);
-
-        mRecyclerView.setAdapter(mAdapter);
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        String userFullName = preferences.getString(getString(R.string.PREF_FIT_NAME), NAME);
 
         final GestureDetector mGestureDetector = new GestureDetector(MainActivity.this, new GestureDetector.SimpleOnGestureListener(){
 
@@ -124,56 +151,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener(){
-
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-                View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
-
-                if(child != null && mGestureDetector.onTouchEvent(motionEvent)) {
-                    int index = recyclerView.getChildAdapterPosition(child);
-
-                    // handle navigation header
-                    if(index < 1) {
-                        index = 1;
-                    }
-                    mDrawer.closeDrawers();
-                    switch(index) {
-                        case 1:
-                            onMyFitnessItemClicked();
-                            break;
-                        case 2:
-                            onCardioExerciseClicked();
-                            break;
-                        case 3:
-                            onStrengthExerciseClicked();
-                            break;
-                        case 4:
-                            onFlexibilityExerciseClicked();
-                            break;
-                        case 5:
-                            onDietClicked();
-                            break;
-                        default:
-                            break;
-                    }
-                    Toast.makeText(MainActivity.this, "The Item Clicked is: " + TITLES[index - 1], Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-                //
-            }
-        });
 
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -190,7 +167,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        //mDrawer.setDrawerListener();  // deprecated
         mDrawer.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
@@ -200,6 +176,17 @@ public class MainActivity extends AppCompatActivity {
             myFitnessFragment = new MyFitnessFragment();
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, myFitnessFragment).commit();
         }
+
+        TextView textViewNavHeaderUsername = navView.getHeaderView(0).findViewById(R.id.textViewNavHeaderUsername);
+        TextView textViewNavHeaderEmail = navView.getHeaderView(0).findViewById(R.id.textViewNavHeaderEmail);
+        CircleImageView circleImageViewNavHeaderProfileImage = navView.getHeaderView(0).findViewById(R.id.circleImageViewNavHeaderProfileImage);
+
+        textViewNavHeaderUsername.setText(userFullName);
+    }
+
+    private void updateProfileImage() {
+        Log.d(TAG, "updateProfileImage: set new profile image...");
+        //TODO
     }
 
     @Override

@@ -126,5 +126,7 @@
 
     <!-- ERROR MESSAGES -->
     <string name="invalid_orientation_error">invalid orientation</string>
+    <string name="my_fitness_menu_item">My Fitness</string>
+    <string name="menu_item_update_profile_photo">Update Profile Photo</string>
 
 </resources>

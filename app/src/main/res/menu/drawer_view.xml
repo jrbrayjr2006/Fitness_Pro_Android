@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"
+        android:id="@+id/primaryMenuItemsGroup">
+        <item
+            android:id="@+id/menuItemMyFitness"
+            android:title="@string/navigation_title_my_fitness"/>
+        <item
+            android:id="@+id/menuItemCardio"
+            android:title="@string/navigation_title_cardio"/>
+        <item
+            android:id="@+id/menuItemMyStrength"
+            android:title="@string/navigation_title_strength"/>
+        <item
+            android:id="@+id/menuItemFlexibility"
+            android:title="@string/navigation_title_flexibility"/>
+        <item
+            android:id="@+id/menuItemDiet"
+            android:title="@string/navigation_title_diet"/>
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/informationMenuItemsGroup">
+        <item
+            android:id="@+id/menuItemUpdateProfilePhoto"
+            android:title="@string/menu_item_update_profile_photo"/>
+    </group>
+</menu>

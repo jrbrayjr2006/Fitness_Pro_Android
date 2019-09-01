@@ -29,4 +29,5 @@
     <color name="cardio_2">#452F91</color>
     <color name="cardio_3">#3D5DAA</color>
     <color name="cardio_4">#1592CE</color>
+    <color name="drawable_selector_drawer_item">#ccc</color>
 </resources>
