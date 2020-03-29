@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textViewNavHeaderUsername = navView.getHeaderView(0).findViewById(R.id.textViewNavHeaderUsername);
         TextView textViewNavHeaderEmail = navView.getHeaderView(0).findViewById(R.id.textViewNavHeaderEmail);
-        CircleImageView circleImageViewNavHeaderProfileImage = navView.getHeaderView(0).findViewById(R.id.circleImageViewNavHeaderProfileImage);
+        CircleImageView circleImageViewNavHeaderProfileImage = navView.getHeaderView(0).findViewById(R.id.profileImageCircleImageView);
 
         textViewNavHeaderUsername.setText(userFullName);
     }
